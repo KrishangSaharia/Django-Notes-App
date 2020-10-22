@@ -1,0 +1,30 @@
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Your Notes Page</title>
+    </head>
+    <body>
+        <h1>Welcome to your Page!</h1>
+        <a href="/notes/{{userid}}/add">Add a Note </a>
+        <a href="/notes/{{userid}}/bin">Bin</a>
+        {% if note_list %}
+            <ul>
+                {% for note in note_list %}
+                    <li><strong>Title : </strong>{{note.title}}<br>
+                    <strong>Note:</strong>{{note.note}}<br>
+                    <strong>Date and Time :</strong> {{ note.datetime }}<br>
+                    <strong>Edited On:</strong>{{note.editdate}}
+
+
+                    <!--<img src="media/{{note.upload}}" alt="This is your upload">-->
+                    <a href="/notes/{{userid}}/{{note.id}}/delete">Delete</a>
+                    <a href="/notes/{{userid}}/{{note.id}}/edit">Edit</a>
+                    <hr><hr></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>NO NOTES ARE AVAILABLE!</p>
+        {% endif %}
+    </body>
+</html>

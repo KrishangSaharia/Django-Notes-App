@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><!-- NOTE: dir:ltr means direction from left to right other optin is rtl -->
+    <head>
+        <meta charset="utf-8">
+        <title>Add a Note</title>
+    </head>
+    <body>
+        <h2>Add a note:</h2>
+        <form  action="{% url 'notes:add' userid %}" method="post">
+            {% csrf_token %}
+
+            <label for="title">Title:</label>
+            <input type="text" name="title" value="">
+
+            <label for="note">Write your Notes Here :</label>
+            <input type="text" name="note" value="">
+            <br>
+
+            <label for="upload">Upload:</label>
+            <input type="file" name="upload" value="upload">
+
+            <input type="submit" name="submit" value="ADD">
+        </form>
+    </body>
+</html>

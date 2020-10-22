@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Your Notes</title>
+    </head>
+    <body>
+        <h2>Your Deleted Notes</h2>
+        {% for note in  bin_note_list %}
+            <strong>Title:</strong>{{note.title}}<br>
+            <strong>Note:</strong>{{note.note}}<br>
+            <strong>Date and Time :</strong>{{note.datetime}}<br>
+            <strong>Date Deleted :</strong>{{note.deletedate}}
+            <a href="/notes/{{userid}}/{{note.id}}/bin/undo">Undo</a>
+            <a href="{% url 'notes:bin_delete' userid note.id %}">Delete</a>
+            <br>
+            <hr><hr>
+        {% endfor %}
+
+    </body>
+</html>
